@@ -1,14 +1,21 @@
 ## Download the file
-##                if(!file.exists("./data")){dir.create("./data")}
-##                fileUrl <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
-##                download.file(fileUrl,destfile="./data/Electric_power_consumption.zip")
-##
+#                if(!file.exists("./data")){dir.create("./data")}
+#                fileUrl <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
+#                download.file(fileUrl,destfile="./data/Electric_power_consumption.zip")
+#
 ## Unzip dataSet to /data directory
-##                unzip(zipfile="./data/Electric_power_consumption.zip",exdir="./data")
-##
+#                unzip(zipfile="./data/Electric_power_consumption.zip",exdir="./data")
+#
 ## Read txt file in a variable applying filters.
-##                raw_data <- read.csv("./data/household_power_consumption.txt", header=T, sep=';', na.strings="?", 
-##                              nrows=2075259, check.names=F, stringsAsFactors=F, comment.char="", quote='\"')
-##                filter_data <- subset(raw_data, Date %in% c("1/2/2007","2/2/2007"))
-##                filter_data$Date <- as.Date(filter_data$Date, format="%d/%m/%Y")
-## filter_data is the variable where we have stored data for electical consumption for two days. 
+#                raw_data <- read.csv("./data/household_power_consumption.txt", header=T, sep=';', na.strings="?", 
+#                              nrows=2075259, check.names=F, stringsAsFactors=F, comment.char="", quote='\"')
+#                filter_data <- subset(raw_data, Date %in% c("1/2/2007","2/2/2007"))
+#                filter_data$Date <- as.Date(filter_data$Date, format="%d/%m/%Y")
+#                datetime <- paste(as.Date(filter_data$Date), filter_data$Time)
+#                filter_data$Datetime <- as.POSIXct(datetime)
+## filter_data is the variable where we have stored data for electical consumption for two days.
+#        
+                with(filter_data, {plot(Global_active_power~datetime, type="l",
+                        ylab="Global Active Power (kilowatts)", xlab="")})               
+                dev.copy(png, file="plot2.png", height=480, width=480)
+                dev.off()
