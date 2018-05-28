@@ -11,4 +11,6 @@
                               nrows=2075259, check.names=F, stringsAsFactors=F, comment.char="", quote='\"')
                 filter_data <- subset(raw_data, Date %in% c("1/2/2007","2/2/2007"))
                 filter_data$Date <- as.Date(filter_data$Date, format="%d/%m/%Y")
+                datetime <- paste(as.Date(filter_data$Date), filter_data$Time)
+                filter_data$Datetime <- as.POSIXct(datetime)
 ## filter_data is the variable where we have stored data for electical consumption for two days.
