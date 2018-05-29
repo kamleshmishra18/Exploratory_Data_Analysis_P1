@@ -11,3 +11,13 @@
     Generate PNG file
     
 ## Plot2.R
+    Plot Chart as per instructions
+    save as png file
+    
+## Plot3.R
+    Plot Chart as per instructions
+    save as png file
+    
+## Plot4.R
+    Plot Chart as per instructions
+    save as png file
