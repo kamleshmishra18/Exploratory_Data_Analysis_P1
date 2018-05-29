@@ -14,8 +14,14 @@
 #                datetime <- paste(as.Date(filter_data$Date), filter_data$Time)
 #                filter_data$Datetime <- as.POSIXct(datetime)
 ## filter_data is the variable where we have stored data for electical consumption for two days.
-                 with(filter_data, plot(Sub_metering_1~datetime, type="l", ylab="Global Active Power (kilowatts)", xlab="")
-                              lines(Sub_metering_2~datetime,col='Red')
-                              lines(Sub_metering_3~datetime,col='Blue')
-                             }
-                     )
+                 with(filter_data, plot(Sub_metering_1~datetime, type="l", ylab="Global Active Power (kilowatts)", xlab=""))
+                 with(filter_data, lines(Sub_metering_2~datetime,col='Red')
+                 with(filter_data, lines(Sub_metering_3~datetime,col='Blue')
+                 
+                 legend("topright", col=c("black", "red", "blue"), lty=1, lwd=2, 
+                          legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+                 
+## Saving to file
+                  dev.copy(png, file="plot3.png", height=480, width=480)
+                  dev.off()
+                      
